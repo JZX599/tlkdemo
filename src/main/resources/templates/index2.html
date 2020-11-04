@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+    <title>智慧社区</title>
+    <link rel="stylesheet" href="css/首页.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <script src="js/echarts.min.js"></script>
+</head>
+
+<body>
+
+
+<div id="box">
+    <!-- 头部标题 -->
+    <div class="head">
+        <div class="headleft">
+            <a href="#"><img src="imgs/tab/选中/首页.png"></a>
+            <a href="#"><img src="imgs/tab/选中/动态.png"></a>
+            <a href="#"><img src="imgs/tab/选中/监测数据.png"></a>
+            <a href="#"><img src="imgs/tab/选中/矢量智能对象.png"></a>
+            <a href="#"><img src="imgs/tab/选中/重点人员.png"></a>
+            <a href="#"><img src="imgs/tab/选中/预警.png"></a>
+            <a href="#"><img src="imgs/tab/选中/二维码.png"></a>
+        </div>
+        <div class="headright">
+            <a href="#" class="showTime"></a>
+            <a href="#" class="avatar"><img src="imgs/图层 1552.png"></a>
+            <a href="#">张*升（民警)<br>南昌***派出所</a>
+        </div>
+    </div>
+    <!-- 一键搜 -->
+    <div class="search">
+        <a href=""><img src="imgs/dingwei.png">单位车辆码</a>
+        <a href="一键搜.html"><img src="imgs/一键搜.png"><img src="imgs/组 649.png"></a>
+        <a href=""><img src="imgs/切换.png"></a>
+    </div>
+    <!-- 中间主体 -->
+    <div class="content">
+        <div class="contentleft">
+            <div class="contentlefttop">
+                <div class="contentlefttopleft">
+                    <span><img src="imgs/组 645.png"></span>
+                    <div class="contentlefttopleftmid">
+                        <p class="danweima">单位码总量</p>
+                        <p>673,244</p>
+                    </div>
+                    <div class="contentlefttopleftright">
+                        <p >今日增量</p>
+                        <p>33,244</p>
+                    </div>
+                </div>
+                <div class="contentlefttopright">
+                    <span><img src="imgs/组 647.png"></span>
+                    <div class="contentlefttopleftmid">
+                        <p class="danweima">小区/楼宇码总量</p>
+                        <p>673,244</p>
+                    </div>
+                    <div class="contentlefttopleftright">
+                        <p>今日增量</p>
+                        <p>33.244</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contentleftbuttom" id="main">
+                <div id="box2" style="color: red">
+                    sdfdsf
+                </div>
+            </div>
+        </div>
+        <div class="contentright">
+            <div class="contentrighttop">
+                <span><img src="imgs/组 647.png"></span>
+                <div class="contentlefttopleftmid">
+                    <p class="danweima">单位码总量</p>
+                    <p>673244</p>
+                </div>
+                <div class="contentlefttopleftright">
+                    <p>今日增量</p>
+                    <p>33244</p>
+                </div>
+            </div>
+            <div class="contentrightbuttom" id="main2">
+
+            </div>
+        </div>
+    </div>
+    <!-- 底部 -->
+    <div class="foot" id="main1"></div>
+</div>
+
+
+
+
+</body>
+</html>
+
+
+<script>
+    var t = null;
+    t = setTimeout(time, 1000); //開始运行
+    function time() {
+        clearTimeout(t); //清除定时器
+        dt = new Date();
+        var y = dt.getFullYear();
+        var mt = dt.getMonth() + 1;
+        var day = dt.getDate();
+        var h = dt.getHours(); //获取时
+        var m = dt.getMinutes(); //获取分
+        var s = dt.getSeconds(); //获取秒
+        document.querySelector(".showTime").innerHTML =
+            y +
+            "年" +
+            mt +
+            "月" +
+            day +
+            "-" +
+            h +
+            "时" +
+            m +
+            "分" +
+            s +
+            "秒";
+        t = setTimeout(time, 1000); //设定定时器，循环运行
+    }
+</script>
+
+
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+    // 指定图表的配置项和数据
+    var option = {
+        legend: {
+            textStyle: {
+                color: "rgba(248, 246, 246, 1))"
+            }
+        },
+        tooltip: {},
+        color: ["#aaffa9", "#00CBE9", "#ff8e4a",],
+        dataset: {
+            dimensions: ['product', '单位码', '车辆码', '小区/楼宇码'],
+            source: [
+                {product: '青山湖', '单位码': 43.3, '车辆码': 85.8, '小区/楼宇码': 93.7},
+                {product: '湾里区', '单位码5': 83.1, '车辆码': 73.4, '小区/楼宇码': 55.1},
+                {product: '安义区', '单位码': 86.4, '车辆码': 65.2, '小区/楼宇码': 82.5},
+                {product: '东湖区', '单位码': 72.4, '车辆码': 53.9, '小区/楼宇码': 39.1},
+                {product: '红谷滩', '单位码': 72.4, '车辆码': 53.9, '小区/楼宇码': 39.1},
+                {product: '西湖区', '单位码': 72.4, '车辆码': 53.9, '小区/楼宇码': 39.1},
+                {product: '经开区', '单位码': 72.4, '车辆码': 53.9, '小区/楼宇码': 39.1},
+                {product: '南昌县', '单位码': 72.4, '车辆码': 53.9, '小区/楼宇码': 39.1},
+                {product: '高新区', '单位码': 72.4, '车辆码': 53.9, '小区/楼宇码': 39.1},
+                {product: '新建区', '单位码': 72.4, '车辆码': 53.9, '小区/楼宇码': 39.1},
+                {product: '青云谱区', '单位码': 72.4, '车辆码': 53.9, '小区/楼宇码': 39.1},
+                {product: '进贤区', '单位码': 72.4, '车辆码': 53.9, '小区/楼宇码': 39.1},
+            ]
+
+        },
+        xAxis: {type: 'category',
+            axisLabel: {
+                show: true,
+                textStyle: {
+                    color:"#fff"
+
+
+                }
+            }},
+
+        yAxis: {
+            axisLabel: {
+                show: true,
+                textStyle: {
+                    color:"#fff"
+
+
+                }
+            }
+        },
+        // Declare several bar series, each will be mapped
+        // to a column of dataset.source by default.
+        series: [
+            {type: 'bar'},
+            {type: 'bar'},
+            {type: 'bar'}
+        ]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+    myChart.on('click', function (params) {
+        var city = params.name;
+        alert(city);
+    })
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+    var myChart = echarts.init(document.getElementById('main1'));
+
+    var option1 = {
+        title: {
+            text: '每日注册趋势',
+            textStyle: {
+                fontWeight: 'normal',
+                color: '#fff',
+            },
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            data: ['单位码', '车辆码', '小区/楼宇码'],
+            color: '#fff',
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: ['2-01', '2-02', '2-03', '2-04', '2-05', '2-06', '2-07','2-08','2-09','2-10','2-11','2-12','2-13','2-14','2-15','2-16','2-17','2-18','2-19','2-20','2-21','2-22','2-23','2-24','2-25','2-26','2-27','2-28','2-29','3-01'],
+            axisLabel: {
+                show: true,
+                textStyle: {
+                    color:"#fff"
+                }
+            }
+        },
+        yAxis: {
+            type: 'value',
+            axisLabel: {
+                show: true,
+                textStyle: {
+                    color:"#fff"
+                }
+            }
+        },
+        series: [
+            {
+                name: '单位码',
+                type: 'line',
+                stack: '总量',
+                data: [1820, 2932, 5901, 3934, 4290, 4330, 5320,4330,4432,3330,5330,2786,4330,4330,4330,4330,4330,4330,4330,4630,4330,3230,4330,4330,4330,4330,4330,4330,1330,2230,4230,3330,4330,4930,4330,4330,4330,6330,4330,]
+            },
+            {
+                name: '车辆码',
+                type: 'line',
+                stack: '总量',
+                data: [1820, 2932, 5901, 3934, 4290, 4330, 5320,4330,4432,3330,5330,2786,4330,4330,4330,2330,4330,3330,4330,4330,4330,4330,4330,4330,4330,4330,4330,630,4330,4330,4330,4330,4330,4330,4330,4330,4330,4330,4330,],
+            },
+            {
+                name: '小区/楼宇码',
+                type: 'line',
+                stack: '总量',
+                data: [12, 932, 901, 2224, 1290, 1330, 700,6330,2230,1330,5530,3430,1330,6430,1330,4330,1330,1330,2330,1330,430,5330,1330,3330,3410,4330,5530,2230,4430,1330,4530,3330,5530,1430,5530,1330,1330,4830,5430,1330,1330,1330,]
+            },
+
+        ]
+    };
+    myChart.setOption(option1);
+</script>
+
+
+<script type="text/javascript">
+    var myChart = echarts.init(document.getElementById('main2'));
+    var option2 = {
+        color: ["#52DFCDFF", "#e7b76cFF",],
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
+        legend: {
+            data: ['扫码总量', '今日增量']
+        },
+        grid: {
+            left: '1%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'value',
+            boundaryGap: [0, 0.1],
+            axisLabel: {
+                show: false
+            }
+        },
+        yAxis: {
+            type: 'category',
+            data: ['其他车', '公交车', '网约车', '出租车'],
+            axisLabel: {
+                show: true,
+                textStyle: {
+                    color: "#E5FF8B"
+                }
+            }
+        },
+        series: [
+            {
+                name: '扫码总量',
+                type: 'bar',
+                label: {
+                    show: true,
+                    position: 'inside'
+                },
+                data: [ 244, 200, 220, 210]
+            },
+            {
+                name: '今日增量',
+                type: 'bar',
+                stack: '总量',
+                label: {
+                    show: true
+                },
+                data: [374, 390, 450, 420]
+            },
+
+        ]
+    };
+    myChart.setOption(option2);
+</script>
